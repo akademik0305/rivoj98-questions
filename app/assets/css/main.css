@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import "tailwindcss";
 @import "@nuxt/ui";
+/* @import './fonts.css'; */
 
 /* nuxt ui */
 :root {
@@ -9,26 +9,25 @@
 
 /* custom themes */
 @theme {
-  --color-main: #004BE2;
-  --color-gray: #8E8E93;
-  --color-sc: #B6FF03;
-  --color-bg: #FFFFFF;
-  --color-title: #262639;
-  --color-text: #1A202C;
-  --color-subtext: #505050;
-  --color-gray: #4d4d4d;
-  --color-border: #E4E4E4;
-  --color-yellow: #F6F9E3;
-  --color-neutral: #727376;
-  --color-neutral-light: #D3D6DC;
-  --color-card-bg: #F5F7FF;
-  --color-btn: #2364D2;
+  --color-white: #f1fbe8;
+  --color-black: #090d06;
+  --color-main: #a9ff5c;
+  --color-main-hover: #7fd136;
+  --color-main-light: #e1ffc7;
+  --color-main-10: #1f2b15;
+  --color-main-dark: #356905;
+  --color-orange-light: #ffc295;
+  --color-yellow-light: #ffe27d;
+  --color-orange-dark: #602606;
+  --color-yellow-dark: #564801;
+  --color-green-dark-1: #003800;
+  --color-green-dark-2: #002d00;
+  --color-gray-60: #979f90;
   --ui-primary: var(--color-main);
 
-
-
   /* fonts */
-  --font-poppins: 'Poppins', sans-serif;
+  --font-family: 'TT Travels';
+  --font-second-family: 'Futura PT Cond Extra';
 
   /* font sizes */
   --text-tiny: 10px;
@@ -53,16 +52,18 @@
   --breakpoint-xs: 450px
 }
 
+* {
+  box-sizing: border-box;
+}
 
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-family);
   color: var(--color-text);
-  background-color: var(--color-bg);
-
+  background-color: var(--color-black);
 }
 
 button {
@@ -71,19 +72,6 @@ button {
 
 input {
   outline: none;
-}
-
-/* transition */
-.modal-enter-active,
-.modal-leave-active {
-  transition: all 0.3s linear;
-  opacity: 1;
-}
-
-.modal-enter-from,
-.modal-leave-to {
-  top: -100px;
-  opacity: 0;
 }
 
 /* container */
@@ -140,7 +128,7 @@ input {
 }
 
 ::-webkit-scrollbar-track {
-  background-color: var(--color-border);
+  background-color: var(white);
   border-radius: 2px;
 }
 
@@ -149,32 +137,3 @@ input {
   background-color: var(--color-main);
 }
 
-
-/* swiper custom styles */
-swiper-container::part(wrapper) {
-  padding: 10px 0;
-}
-
-/* swiper-container::part(pagination) {
-} */
-
-swiper-container::part(bullet) {
-  width: 16px;
-  height: 10px;
-  background-color: var(--color-text);
-  border-radius: 10px;
-}
-
-swiper-container::part(bullet-active) {
-  width: 20px;
-  height: 10px;
-  background-color: var(--color-main);
-  border-radius: 10px;
-}
-
-
-swiper-slide {
-  display: flex;
-  flex-direction: column;
-  height: auto;
-}

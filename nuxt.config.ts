@@ -3,21 +3,37 @@ import tailwindcss from "@tailwindcss/vite"
 export default defineNuxtConfig({
 	compatibilityDate: "2025-07-15",
 	devtools: { enabled: true },
-	modules: ["@nuxt/ui", "@nuxtjs/i18n"],
+	modules: ["@nuxt/ui", "@nuxt/fonts"],
 
 	vite: {
 		plugins: [tailwindcss()],
 	},
 
-	i18n: {
-		defaultLocale: "uz",
-		detectBrowserLanguage: false,
-		locales: [
-			{ code: "en", name: "English", file: "en.json" },
-			{ code: "uz", name: "Uzbek", file: "uz.json" },
-			{ code: "ru", name: "Russian", file: "ru.json" },
+	css: ["./app/assets/css/main.css"],
+
+	fonts: {
+		families: [
+			{
+				name: "Futura PT Cond Extra",
+				src: "/fonts/futura-cond/FuturaPTCond-ExtraBold.woff2",
+				weight: "800",
+				style: "normal",
+				preload: true,
+			},
+			{
+				name: "TT Travels",
+				src: "/fonts/tt_travels/TTTravels-Medium.woff2",
+				weight: "500",
+				style: "normal",
+				preload: true,
+			},
+			{
+				name: "TT Travels",
+				src: "/fonts/tt_travels/TTTravels-Bold.woff2",
+				weight: "700",
+				style: "normal",
+				preload: true,
+			},
 		],
 	},
-
-	css: ["./app/assets/css/main.css"],
 })

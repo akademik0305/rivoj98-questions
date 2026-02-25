@@ -248,6 +248,13 @@
   dependencies:
     fontkit "^2.0.2"
 
+"@capsizecss/unpack@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.npmjs.org/@capsizecss/unpack/-/unpack-4.0.0.tgz"
+  integrity sha512-VERIM64vtTP1C4mxQ5thVT9fK0apjPFobqybMtA1UdUujWka24ERHbRHFGmpbbhp73MhV+KSsHQH9C6uOTdEQA==
+  dependencies:
+    fontkitten "^1.0.0"
+
 "@clack/core@1.0.0-alpha.7":
   version "1.0.0-alpha.7"
   resolved "https://registry.npmjs.org/@clack/core/-/core-1.0.0-alpha.7.tgz"
@@ -747,6 +754,14 @@
     "@nuxt/kit" "^4.2.1"
     execa "^8.0.1"
 
+"@nuxt/devtools-kit@^3.2.1":
+  version "3.2.1"
+  resolved "https://registry.npmjs.org/@nuxt/devtools-kit/-/devtools-kit-3.2.1.tgz"
+  integrity sha512-lwCtTgqH2izU/d+mAmddnPG3mBaia9BsknxYkMFAPbxtph/ex5tPkmQjKACPQU5q4Tl5bTgWgZWo9pa3oz4LMQ==
+  dependencies:
+    "@nuxt/kit" "^4.3.1"
+    execa "^8.0.1"
+
 "@nuxt/devtools-wizard@3.1.1":
   version "3.1.1"
   resolved "https://registry.npmjs.org/@nuxt/devtools-wizard/-/devtools-wizard-3.1.1.tgz"
@@ -825,6 +840,27 @@
     unifont "^0.6.0"
     unplugin "^2.3.10"
     unstorage "^1.17.2"
+
+"@nuxt/fonts@^0.14.0":
+  version "0.14.0"
+  resolved "https://registry.npmjs.org/@nuxt/fonts/-/fonts-0.14.0.tgz"
+  integrity sha512-4uXQl9fa5F4ibdgU8zomoOcyMdnwgdem+Pi8JEqeDYI5yPR32Kam6HnuRr47dTb97CstaepAvXPWQUUHMtjsFQ==
+  dependencies:
+    "@nuxt/devtools-kit" "^3.2.1"
+    "@nuxt/kit" "^4.2.2"
+    consola "^3.4.2"
+    defu "^6.1.4"
+    fontless "^0.2.1"
+    h3 "^1.15.5"
+    magic-regexp "^0.10.0"
+    ofetch "^1.5.1"
+    pathe "^2.0.3"
+    sirv "^3.0.2"
+    tinyglobby "^0.2.15"
+    ufo "^1.6.3"
+    unifont "^0.7.4"
+    unplugin "^3.0.0"
+    unstorage "^1.17.4"
 
 "@nuxt/icon@^2.1.1":
   version "2.2.1"
@@ -924,6 +960,32 @@
     tinyglobby "^0.2.15"
     ufo "^1.6.1"
     unctx "^2.4.1"
+    untyped "^2.0.0"
+
+"@nuxt/kit@^4.3.1":
+  version "4.3.1"
+  resolved "https://registry.npmjs.org/@nuxt/kit/-/kit-4.3.1.tgz"
+  integrity sha512-UjBFt72dnpc+83BV3OIbCT0YHLevJtgJCHpxMX0YRKWLDhhbcDdUse87GtsQBrjvOzK7WUNUYLDS/hQLYev5rA==
+  dependencies:
+    c12 "^3.3.3"
+    consola "^3.4.2"
+    defu "^6.1.4"
+    destr "^2.0.5"
+    errx "^0.1.0"
+    exsolve "^1.0.8"
+    ignore "^7.0.5"
+    jiti "^2.6.1"
+    klona "^2.0.6"
+    mlly "^1.8.0"
+    ohash "^2.0.11"
+    pathe "^2.0.3"
+    pkg-types "^2.3.0"
+    rc9 "^3.0.0"
+    scule "^1.3.0"
+    semver "^7.7.4"
+    tinyglobby "^0.2.15"
+    ufo "^1.6.3"
+    unctx "^2.5.0"
     untyped "^2.0.0"
 
 "@nuxt/nitro-server@4.2.2":
@@ -3369,6 +3431,19 @@ fontaine@^0.7.0, fontaine@0.7.0:
     ufo "^1.6.1"
     unplugin "^2.3.10"
 
+fontaine@0.8.0:
+  version "0.8.0"
+  resolved "https://registry.npmjs.org/fontaine/-/fontaine-0.8.0.tgz"
+  integrity sha512-eek1GbzOdWIj9FyQH/emqW1aEdfC3lYRCHepzwlFCm5T77fBSRSyNRKE6/antF1/B1M+SfJXVRQTY9GAr7lnDg==
+  dependencies:
+    "@capsizecss/unpack" "^4.0.0"
+    css-tree "^3.1.0"
+    magic-regexp "^0.10.0"
+    magic-string "^0.30.21"
+    pathe "^2.0.3"
+    ufo "^1.6.1"
+    unplugin "^2.3.10"
+
 fontkit@^2.0.2:
   version "2.0.4"
   resolved "https://registry.npmjs.org/fontkit/-/fontkit-2.0.4.tgz"
@@ -3383,6 +3458,13 @@ fontkit@^2.0.2:
     tiny-inflate "^1.0.3"
     unicode-properties "^1.4.0"
     unicode-trie "^2.0.0"
+
+fontkitten@^1.0.0:
+  version "1.0.2"
+  resolved "https://registry.npmjs.org/fontkitten/-/fontkitten-1.0.2.tgz"
+  integrity sha512-piJxbLnkD9Xcyi7dWJRnqszEURixe7CrF/efBfbffe2DPyabmuIuqraruY8cXTs19QoM8VJzx47BDRVNXETM7Q==
+  dependencies:
+    tiny-inflate "^1.0.3"
 
 fontless@^0.1.0:
   version "0.1.0"
@@ -3401,6 +3483,25 @@ fontless@^0.1.0:
     pathe "^2.0.3"
     ufo "^1.6.1"
     unifont "^0.6.0"
+    unstorage "^1.17.1"
+
+fontless@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.npmjs.org/fontless/-/fontless-0.2.1.tgz"
+  integrity sha512-mUWZ8w91/mw2KEcZ6gHNoNNmsAq9Wiw2IypIux5lM03nhXm+WSloXGUNuRETNTLqZexMgpt7Aj/v63qqrsWraQ==
+  dependencies:
+    consola "^3.4.2"
+    css-tree "^3.1.0"
+    defu "^6.1.4"
+    esbuild "^0.27.0"
+    fontaine "0.8.0"
+    jiti "^2.6.1"
+    lightningcss "^1.30.2"
+    magic-string "^0.30.21"
+    ohash "^2.0.11"
+    pathe "^2.0.3"
+    ufo "^1.6.1"
+    unifont "^0.7.4"
     unstorage "^1.17.1"
 
 foreground-child@^3.1.0:
@@ -3558,7 +3659,7 @@ gzip-size@^7.0.0:
   dependencies:
     duplexer "^0.1.2"
 
-h3@^1.12.0, h3@^1.15.4:
+h3@^1.12.0, h3@^1.15.4, h3@^1.15.5:
   version "1.15.5"
   resolved "https://registry.npmjs.org/h3/-/h3-1.15.5.tgz"
   integrity sha512-xEyq3rSl+dhGX2Lm0+eFQIAzlDN6Fs0EcC4f7BNUmzaRX/PTzeuM+Tr2lHB8FoXggsQIeXLj8EDVgs5ywxyxmg==
@@ -4065,15 +4166,15 @@ lru-cache@^10.2.0:
   resolved "https://registry.npmjs.org/lru-cache/-/lru-cache-10.4.3.tgz"
   integrity sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ==
 
-lru-cache@^10.4.3:
-  version "10.4.3"
-  resolved "https://registry.npmjs.org/lru-cache/-/lru-cache-10.4.3.tgz"
-  integrity sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ==
-
 lru-cache@^11.0.0:
   version "11.2.4"
   resolved "https://registry.npmjs.org/lru-cache/-/lru-cache-11.2.4.tgz"
   integrity sha512-B5Y16Jr9LB9dHVkh6ZevG+vAbOsNOYCX+sXvFWFu7B3Iz5mijW3zdbMyhsh8ANd2mSWBYdJgnqi+mL7/LrOPYg==
+
+lru-cache@^11.2.0:
+  version "11.2.6"
+  resolved "https://registry.npmjs.org/lru-cache/-/lru-cache-11.2.6.tgz"
+  integrity sha512-ESL2CrkS/2wTPfuend7Zhkzo2u0daGJ/A2VucJOgQ/C48S/zB8MMeMHSGKYpXhIjbPxfuezITkaBH1wqv00DDQ==
 
 lru-cache@^5.1.1:
   version "5.1.1"
@@ -5347,6 +5448,14 @@ rc9@^2.1.2:
     defu "^6.1.4"
     destr "^2.0.3"
 
+rc9@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.npmjs.org/rc9/-/rc9-3.0.0.tgz"
+  integrity sha512-MGOue0VqscKWQ104udASX/3GYDcKyPI4j4F8gu/jHHzglpmy9a/anZK3PNe8ug6aZFl+9GxLtdhe3kVZuMaQbA==
+  dependencies:
+    defu "^6.1.4"
+    destr "^2.0.5"
+
 readable-stream@^2.0.5:
   version "2.3.8"
   resolved "https://registry.npmjs.org/readable-stream/-/readable-stream-2.3.8.tgz"
@@ -5546,10 +5655,10 @@ semver@^6.3.1:
   resolved "https://registry.npmjs.org/semver/-/semver-6.3.1.tgz"
   integrity sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==
 
-semver@^7.3.5, semver@^7.5.3, semver@^7.6.3, semver@^7.7.3:
-  version "7.7.3"
-  resolved "https://registry.npmjs.org/semver/-/semver-7.7.3.tgz"
-  integrity sha512-SdsKMrI9TdgjdweUSR9MweHA4EJ8YxHn8DFaDisvhVlUOe4BF1tLD7GAj0lIqWVl+dPb/rExr0Btby5loQm20Q==
+semver@^7.3.5, semver@^7.5.3, semver@^7.6.3, semver@^7.7.3, semver@^7.7.4:
+  version "7.7.4"
+  resolved "https://registry.npmjs.org/semver/-/semver-7.7.4.tgz"
+  integrity sha512-vFKC2IEtQnVhpT78h1Yp8wzwrf8CM+MzKMHGJZfBtzhZNycRFnXsHk6E5TxIkkMsgNS7mdX3AGB7x2QM2di4lA==
 
 send@^1.2.0:
   version "1.2.1"
@@ -6066,6 +6175,15 @@ unifont@^0.6.0:
     ofetch "^1.4.1"
     ohash "^2.0.0"
 
+unifont@^0.7.4:
+  version "0.7.4"
+  resolved "https://registry.npmjs.org/unifont/-/unifont-0.7.4.tgz"
+  integrity sha512-oHeis4/xl42HUIeHuNZRGEvxj5AaIKR+bHPNegRq5LV1gdc3jundpONbjglKpihmJf+dswygdMJn3eftGIMemg==
+  dependencies:
+    css-tree "^3.1.0"
+    ofetch "^1.5.1"
+    ohash "^2.0.11"
+
 unimport@^5.5.0, unimport@^5.6.0:
   version "5.6.0"
   resolved "https://registry.npmjs.org/unimport/-/unimport-5.6.0.tgz"
@@ -6192,19 +6310,28 @@ unplugin@^2.0.0, unplugin@^2.3.10, unplugin@^2.3.11, unplugin@^2.3.2, unplugin@^
     picomatch "^4.0.3"
     webpack-virtual-modules "^0.6.2"
 
-unstorage@^1.16.1, unstorage@^1.17.1, unstorage@^1.17.2, unstorage@^1.17.3:
-  version "1.17.3"
-  resolved "https://registry.npmjs.org/unstorage/-/unstorage-1.17.3.tgz"
-  integrity sha512-i+JYyy0DoKmQ3FximTHbGadmIYb8JEpq7lxUjnjeB702bCPum0vzo6oy5Mfu0lpqISw7hCyMW2yj4nWC8bqJ3Q==
+unplugin@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.npmjs.org/unplugin/-/unplugin-3.0.0.tgz"
+  integrity sha512-0Mqk3AT2TZCXWKdcoaufeXNukv2mTrEZExeXlHIOZXdqYoHHr4n51pymnwV8x2BOVxwXbK2HLlI7usrqMpycdg==
+  dependencies:
+    "@jridgewell/remapping" "^2.3.5"
+    picomatch "^4.0.3"
+    webpack-virtual-modules "^0.6.2"
+
+unstorage@^1.16.1, unstorage@^1.17.1, unstorage@^1.17.2, unstorage@^1.17.3, unstorage@^1.17.4:
+  version "1.17.4"
+  resolved "https://registry.npmjs.org/unstorage/-/unstorage-1.17.4.tgz"
+  integrity sha512-fHK0yNg38tBiJKp/Vgsq4j0JEsCmgqH58HAn707S7zGkArbZsVr/CwINoi+nh3h98BRCwKvx1K3Xg9u3VV83sw==
   dependencies:
     anymatch "^3.1.3"
-    chokidar "^4.0.3"
+    chokidar "^5.0.0"
     destr "^2.0.5"
-    h3 "^1.15.4"
-    lru-cache "^10.4.3"
+    h3 "^1.15.5"
+    lru-cache "^11.2.0"
     node-fetch-native "^1.6.7"
     ofetch "^1.5.1"
-    ufo "^1.6.1"
+    ufo "^1.6.3"
 
 untun@^0.1.3:
   version "0.1.3"
