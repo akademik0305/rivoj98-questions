@@ -22,7 +22,7 @@ useSeoMeta({
 
     <UiPageSection>
       <UiReveal>
-        <p class="max-w-3xl text-sm leading-relaxed text-zinc-400 lg:text-base">
+        <p class="max-w-3xl text-sm leading-relaxed text-fg-muted lg:text-base">
           Aimed at fostering mutual understanding and personal growth, these
           projects are gateways to gaining invaluable life experiences, enhancing
           skills, and contributing to the vibrant fabric of European unity.

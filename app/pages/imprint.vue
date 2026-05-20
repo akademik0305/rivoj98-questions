@@ -10,7 +10,7 @@ useSeoMeta({ title: "Imprint — eSquare e.V." })
   <div>
     <UiPageHero eyebrow="Legal" title="Imprint" />
 
-    <section class="border-t border-white/6 bg-bg">
+    <section class="border-t border-nav-border bg-bg">
       <UiContentSection
         v-for="(section, i) in imprintSections"
         :key="section.title"

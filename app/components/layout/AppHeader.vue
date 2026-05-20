@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { site } from "~/data/site"
+
+const { logoSrc } = useSiteLogo()
 const route = useRoute()
 const mobileOpen = ref(false)
 const navShadow = ref(false)
@@ -47,21 +50,19 @@ onUnmounted(() => {
 <template>
 	<header
 		class="nav-glass fixed top-0 right-0 left-0 z-50 transition-shadow duration-300"
-		:style="navShadow ? { boxShadow: '0 4px 40px rgba(0,0,0,0.4)' } : {}"
+		:style="navShadow ? { boxShadow: `0 4px 40px var(--theme-shadow)` } : {}"
 	>
 		<div class="container">
 			<div class="flex h-16 items-center justify-between lg:h-20">
-				<NuxtLink to="/" class="group flex items-center gap-2.5">
-					<div
-						class="flex size-8 shrink-0 items-center justify-center rounded-lg bg-main"
-					>
-						<span class="font-display text-xs font-bold text-on-main">eS</span>
-					</div>
-					<span
-						class="font-display text-lg font-semibold tracking-tight text-fg"
-					>
-						eSquare <span class="font-normal text-zinc-500">e.V.</span>
-					</span>
+				<NuxtLink to="/" class="group flex shrink-0 items-center">
+					<img
+						:src="logoSrc"
+						:alt="`${site.name} logo`"
+						class="h-10 w-auto transition-opacity group-hover:opacity-90 lg:h-11"
+						width="200"
+						height="44"
+						fetchpriority="high"
+					/>
 				</NuxtLink>
 
 				<nav
@@ -72,9 +73,9 @@ onUnmounted(() => {
 						<div v-if="item.children" class="group relative">
 							<button
 								type="button"
-								class="flex items-center gap-1.5 rounded-lg px-4 py-2 text-sm font-medium text-zinc-400 transition-all hover:bg-white/5 hover:text-fg"
+								class="flex items-center gap-1.5 rounded-lg px-4 py-2 text-sm font-medium text-fg-muted transition-all hover:bg-hover hover:text-fg"
 								:class="
-									item.children.some(c => isActive(c.to)) ? 'text-main' : ''
+									item.children.some(c => isActive(c.to)) ? 'text-main-dim' : ''
 								"
 							>
 								{{ item.label }}
@@ -89,14 +90,14 @@ onUnmounted(() => {
 								</svg>
 							</button>
 							<div
-								class="invisible absolute top-full left-0 z-10 mt-2 w-52 rounded-xl border border-white/10 bg-zinc-900 p-2 opacity-0 shadow-2xl transition-all group-hover:visible group-hover:opacity-100"
+								class="invisible absolute top-full left-0 z-10 mt-2 w-52 rounded-xl border border-border bg-bg-card p-2 opacity-0 shadow-2xl transition-all group-hover:visible group-hover:opacity-100"
 							>
 								<NuxtLink
 									v-for="child in item.children"
 									:key="child.to"
 									:to="child.to"
-									class="block rounded-lg px-3 py-2.5 text-sm transition-all hover:bg-white/5 hover:text-fg"
-									:class="isActive(child.to) ? 'text-main' : 'text-zinc-300'"
+									class="block rounded-lg px-3 py-2.5 text-sm transition-all hover:bg-hover hover:text-fg"
+									:class="isActive(child.to) ? 'text-main-dim' : 'text-fg-muted'"
 								>
 									{{ child.label }}
 								</NuxtLink>
@@ -108,8 +109,8 @@ onUnmounted(() => {
 							class="rounded-lg px-4 py-2 text-sm font-medium transition-all"
 							:class="
 								isActive(item.to)
-									? 'text-main'
-									: 'text-zinc-400 hover:bg-white/5 hover:text-fg'
+									? 'text-main-dim'
+									: 'text-fg-muted hover:bg-hover hover:text-fg'
 							"
 						>
 							{{ item.label }}
@@ -117,7 +118,8 @@ onUnmounted(() => {
 					</template>
 				</nav>
 
-				<div class="hidden lg:block">
+				<div class="hidden items-center gap-3 lg:flex">
+					<LayoutThemeToggle />
 					<NuxtLink
 						to="/contact-us"
 						class="rounded-xl bg-main px-5 py-2.5 text-sm font-semibold text-on-main transition-all hover:bg-main-hover active:scale-95"
@@ -126,9 +128,11 @@ onUnmounted(() => {
 					</NuxtLink>
 				</div>
 
+				<div class="flex items-center gap-2 lg:hidden">
+					<LayoutThemeToggle />
 				<button
 					type="button"
-					class="p-2 text-zinc-400 hover:text-fg lg:hidden"
+					class="p-2 text-fg-muted hover:text-fg"
 					:aria-expanded="mobileOpen"
 					aria-label="Toggle menu"
 					@click="mobileOpen = !mobileOpen"
@@ -162,17 +166,18 @@ onUnmounted(() => {
 						/>
 					</svg>
 				</button>
+				</div>
 			</div>
 		</div>
 
 		<div
 			v-show="mobileOpen"
-			class="flex flex-col gap-1 border-t border-white/5 px-6 pb-4 lg:hidden"
+			class="flex flex-col gap-1 border-t border-nav-border px-6 pb-4 lg:hidden"
 		>
 			<template v-for="item in navLinks" :key="item.label">
 				<template v-if="item.children">
 					<p
-						class="border-b border-white/5 py-3 text-xs font-medium tracking-wider text-zinc-500 uppercase"
+						class="border-b border-nav-border py-3 text-xs font-medium tracking-wider text-fg-soft uppercase"
 					>
 						{{ item.label }}
 					</p>
@@ -180,8 +185,8 @@ onUnmounted(() => {
 						v-for="child in item.children"
 						:key="child.to"
 						:to="child.to"
-						class="block border-b border-white/5 py-3 text-sm"
-						:class="isActive(child.to) ? 'text-main' : 'text-zinc-300'"
+						class="block border-b border-nav-border py-3 text-sm"
+						:class="isActive(child.to) ? 'text-main-dim' : 'text-fg-muted'"
 					>
 						{{ child.label }}
 					</NuxtLink>
@@ -189,8 +194,8 @@ onUnmounted(() => {
 				<NuxtLink
 					v-else-if="item.to"
 					:to="item.to"
-					class="block border-b border-white/5 py-3 text-sm"
-					:class="isActive(item.to) ? 'text-main' : 'text-zinc-300'"
+					class="block border-b border-nav-border py-3 text-sm"
+					:class="isActive(item.to) ? 'text-main-dim' : 'text-fg-muted'"
 					@click="mobileOpen = false"
 				>
 					{{ item.label }}

@@ -8,7 +8,7 @@ defineProps<{
 
 <template>
   <article
-    class="activity-card rounded-2xl border border-white/[0.08] bg-zinc-900/60 p-6 lg:p-8"
+    class="activity-card surface-card rounded-2xl p-6 lg:p-8"
   >
     <h3 class="font-display text-lg font-bold text-fg">
       {{ name }}
@@ -16,7 +16,7 @@ defineProps<{
     <p class="mt-1 text-xs font-medium tracking-wide text-main uppercase">
       {{ role }}
     </p>
-    <p class="mt-4 text-sm leading-relaxed text-zinc-400">
+    <p class="mt-4 text-sm leading-relaxed text-fg-muted">
       {{ bio }}
     </p>
   </article>

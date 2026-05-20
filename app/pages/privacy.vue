@@ -12,11 +12,11 @@ useSeoMeta({ title: "Data Privacy Policy — eSquare e.V." })
 
     <UiPageSection narrow>
       <UiReveal>
-        <p class="text-sm leading-relaxed text-zinc-400 lg:text-base">{{ privacyIntro }}</p>
+        <p class="text-sm leading-relaxed text-fg-muted lg:text-base">{{ privacyIntro }}</p>
       </UiReveal>
     </UiPageSection>
 
-    <section class="border-t border-white/6 bg-bg">
+    <section class="border-t border-nav-border bg-bg">
       <UiContentSection
         v-for="(section, i) in privacySections"
         :key="section.title"

@@ -6,6 +6,12 @@ export default defineNuxtConfig({
 	devtools: { enabled: true },
 	modules: ["@nuxt/ui", "@nuxt/fonts"],
 
+	colorMode: {
+		preference: "dark",
+		fallback: "dark",
+		classSuffix: "",
+	},
+
 	vite: {
 		plugins: [tailwindcss()],
 	},

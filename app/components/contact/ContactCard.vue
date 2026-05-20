@@ -9,10 +9,10 @@ defineProps<{
 
 <template>
   <article
-    class="activity-card group flex flex-col rounded-2xl border border-white/[0.08] bg-zinc-900/60 p-6 lg:p-8"
+    class="activity-card surface-card group flex flex-col rounded-2xl p-6 lg:p-8"
   >
     <span
-      class="mb-5 flex size-12 items-center justify-center rounded-xl border border-white/10 bg-main/10 text-green-400 transition-colors group-hover:border-main/40"
+      class="mb-5 flex size-12 items-center justify-center rounded-xl border border-border bg-main/10 text-main transition-colors group-hover:border-border-hover"
       aria-hidden="true"
     >
       <svg

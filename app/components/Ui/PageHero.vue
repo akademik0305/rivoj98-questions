@@ -8,10 +8,10 @@ defineProps<{
 </script>
 
 <template>
-  <section class="relative border-b border-white/6 bg-bg pt-28 pb-16 lg:pt-32 lg:pb-20">
+  <section class="relative border-b border-nav-border bg-bg pt-28 pb-16 lg:pt-32 lg:pb-20">
     <div
       class="pointer-events-none absolute inset-0 opacity-10"
-      style="background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px); background-size: 60px 60px;"
+      style="background-image: linear-gradient(var(--theme-grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--theme-grid-line) 1px, transparent 1px); background-size: 60px 60px;"
       aria-hidden="true"
     />
     <div class="container relative">
@@ -30,7 +30,7 @@ defineProps<{
       </h1>
       <p
         v-if="subtitle"
-        class="mt-6 max-w-3xl text-base leading-relaxed text-zinc-400 lg:text-lg"
+        class="mt-6 max-w-3xl text-base leading-relaxed text-fg-muted lg:text-lg"
       >
         {{ subtitle }}
       </p>

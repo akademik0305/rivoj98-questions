@@ -21,7 +21,7 @@ useSeoMeta({
   <div>
     <UiPageHero eyebrow="Blog" :title="post!.title" />
     <UiArticleContent>
-      <time class="block text-xs text-zinc-500" :datetime="post!.date">
+      <time class="block text-xs text-fg-soft" :datetime="post!.date">
         {{
           new Date(post!.date).toLocaleDateString("en-GB", {
             day: "numeric",
@@ -30,8 +30,8 @@ useSeoMeta({
           })
         }}
       </time>
-      <p class="mt-6 text-base leading-relaxed text-zinc-400">{{ post!.excerpt }}</p>
-      <NuxtLink to="/blog" class="border-animate mt-10 inline-flex items-center gap-2 pb-0.5 text-sm font-semibold text-green-400">
+      <p class="mt-6 text-base leading-relaxed text-fg-muted">{{ post!.excerpt }}</p>
+      <NuxtLink to="/blog" class="border-animate mt-10 inline-flex items-center gap-2 pb-0.5 text-sm font-semibold text-main">
         ← Back to Blog
       </NuxtLink>
     </UiArticleContent>

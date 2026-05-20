@@ -31,7 +31,7 @@ useSeoMeta({
         </UiReveal>
       </div>
       <UiReveal v-else>
-        <p class="rounded-2xl border border-white/8 bg-zinc-900/60 p-8 text-center text-zinc-400">
+        <p class="surface-card rounded-2xl p-8 text-center text-fg-muted">
           New posts coming soon. Subscribe to our newsletter to stay updated.
         </p>
       </UiReveal>

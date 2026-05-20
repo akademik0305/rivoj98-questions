@@ -36,9 +36,9 @@ const contactItems = [
       <UiReveal :delay="1" class="mt-16">
         <UiSectionHeading tag="Social" title="Follow us on" accent="Social Media" />
         <div class="mt-6 flex flex-wrap gap-3">
-          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-white/10 px-5 py-3.5 text-sm font-medium text-zinc-400 transition-all hover:border-main/40 hover:text-fg">Facebook</a>
-          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-white/10 px-5 py-3.5 text-sm font-medium text-zinc-400 transition-all hover:border-main/40 hover:text-fg">LinkedIn</a>
-          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-white/10 px-5 py-3.5 text-sm font-medium text-zinc-400 transition-all hover:border-main/40 hover:text-fg">Instagram</a>
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-border px-5 py-3.5 text-sm font-medium text-fg-muted transition-all hover:border-border-hover hover:text-fg">Facebook</a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-border px-5 py-3.5 text-sm font-medium text-fg-muted transition-all hover:border-border-hover hover:text-fg">LinkedIn</a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-border px-5 py-3.5 text-sm font-medium text-fg-muted transition-all hover:border-border-hover hover:text-fg">Instagram</a>
         </div>
       </UiReveal>
     </UiPageSection>

@@ -3,33 +3,88 @@
 
 :root {
   --ui-radius: 0.75rem;
+  color-scheme: light;
+
+  /* Light theme — higher contrast body copy */
+  --theme-bg: #f4f7fb;
+  --theme-bg-elevated: #e8edf4;
+  --theme-bg-card: #ffffff;
+  --theme-bg-footer: #e2e8f0;
+  --theme-fg: #0f1f35;
+  --theme-fg-muted: #334155;
+  --theme-fg-soft: #475569;
+  --theme-fg-dim: #64748b;
+  --theme-header: rgba(248, 250, 252, 0.92);
+  --theme-border: rgba(26, 43, 75, 0.1);
+  --theme-border-hover: rgba(79, 179, 206, 0.5);
+  --theme-hover: rgba(26, 43, 75, 0.05);
+  --theme-nav-border: rgba(26, 43, 75, 0.08);
+  --theme-grid-line: rgba(26, 43, 75, 0.06);
+  --theme-badge-bg: rgba(79, 179, 206, 0.1);
+  --theme-badge-border: rgba(79, 179, 206, 0.25);
+  --theme-input-bg: rgba(26, 43, 75, 0.04);
+  --theme-input-border: rgba(26, 43, 75, 0.12);
+  --theme-input-placeholder: rgba(15, 31, 53, 0.55);
+  --theme-badge-text: #2a7f96;
+  --theme-shadow: rgba(26, 43, 75, 0.12);
 }
 
-/* Dark theme — edit @theme variables to retheme */
+.dark {
+  color-scheme: dark;
+
+  --theme-bg: #06080c;
+  --theme-bg-elevated: #0c1018;
+  --theme-bg-card: #121820;
+  --theme-bg-footer: #040506;
+  --theme-fg: #f4f7fb;
+  --theme-fg-muted: #c8d4e3;
+  --theme-fg-soft: #a3b4c9;
+  --theme-fg-dim: #8b9cb3;
+  --theme-header: rgba(6, 8, 12, 0.92);
+  --theme-border: rgba(255, 255, 255, 0.08);
+  --theme-border-hover: rgba(79, 179, 206, 0.45);
+  --theme-hover: rgba(255, 255, 255, 0.05);
+  --theme-nav-border: rgba(255, 255, 255, 0.06);
+  --theme-grid-line: rgba(255, 255, 255, 0.04);
+  --theme-badge-bg: rgba(79, 179, 206, 0.12);
+  --theme-badge-border: rgba(79, 179, 206, 0.28);
+  --theme-input-bg: rgba(255, 255, 255, 0.05);
+  --theme-input-border: rgba(255, 255, 255, 0.1);
+  --theme-input-placeholder: rgba(255, 255, 255, 0.45);
+  --theme-badge-text: #a8d9e8;
+  --theme-shadow: rgba(0, 0, 0, 0.4);
+}
+
+/* Brand + theme tokens (logo: navy · teal · peach) */
 @theme {
-  --color-bg: #0a0a0a;
-  --color-bg-elevated: #0f0f0f;
-  --color-bg-card: #18181b;
-  --color-bg-footer: #080808;
-  --color-fg: #f5f5f5;
-  --color-fg-muted: #a1a1aa;
-  --color-fg-soft: #71717a;
-  --color-fg-dim: #52525b;
-  --color-main: #22c55e;
-  --color-main-hover: #4ade80;
-  --color-main-dim: #16a34a;
-  --color-main-glow: #86efac;
-  --color-main-dark: #052e16;
-  --color-on-main: #0a0a0a;
-  --color-border: rgba(255, 255, 255, 0.08);
-  --color-border-hover: rgba(34, 197, 94, 0.4);
+  --color-bg: var(--theme-bg);
+  --color-bg-elevated: var(--theme-bg-elevated);
+  --color-bg-card: var(--theme-bg-card);
+  --color-bg-footer: var(--theme-bg-footer);
+  --color-fg: var(--theme-fg);
+  --color-fg-muted: var(--theme-fg-muted);
+  --color-fg-soft: var(--theme-fg-soft);
+  --color-fg-dim: var(--theme-fg-dim);
+  --color-main: #3a9bb5;
+  --color-main-hover: #4fb3ce;
+  --color-main-dim: #2d7f96;
+  --color-main-glow: #a8d9e8;
+  --color-main-dark: #1a2b4b;
+  --color-on-main: #f8fafc;
+  --color-accent: #e8a08a;
+  --color-accent-hover: #f2b9a6;
+  --color-navy: #1a2b4b;
+  --color-brand: #3b5998;
+  --color-border: var(--theme-border);
+  --color-border-hover: var(--theme-border-hover);
+  --color-hover: var(--theme-hover);
+  --color-nav-border: var(--theme-nav-border);
   --ui-primary: var(--color-main);
 
-  /* Legacy aliases */
   --color-black: var(--color-bg);
   --color-white: var(--color-fg);
   --color-gray-60: var(--color-fg-muted);
-  --color-header: rgba(10, 10, 10, 0.85);
+  --color-header: var(--theme-header);
   --color-header-fg: var(--color-fg);
   --color-header-muted: var(--color-fg-muted);
   --color-bg-muted: var(--color-bg-elevated);
@@ -109,14 +164,19 @@ input {
 
 /* Utilities */
 .nav-glass {
-  background: rgba(10, 10, 10, 0.85);
+  background: var(--color-header);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid var(--color-nav-border);
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, #22c55e 0%, #86efac 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-navy) 0%,
+    var(--color-main) 45%,
+    var(--color-accent) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -128,14 +188,32 @@ input {
   align-items: center;
   gap: 6px;
   padding: 5px 14px;
-  background: rgba(34, 197, 94, 0.1);
-  border: 1px solid rgba(34, 197, 94, 0.25);
+  background: var(--theme-badge-bg);
+  border: 1px solid var(--theme-badge-border);
   border-radius: 999px;
   font-size: 0.78rem;
   font-weight: 500;
-  color: var(--color-main-glow);
+  color: var(--theme-badge-text);
   letter-spacing: 0.04em;
   text-transform: uppercase;
+}
+
+/* Theme-aware surfaces & prose */
+.surface-card {
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg-card);
+}
+
+.prose-site {
+  color: var(--color-fg-muted);
+}
+
+.prose-site :where(p, li) {
+  color: var(--color-fg-muted);
+}
+
+.prose-site :where(h1, h2, h3, h4, strong) {
+  color: var(--color-fg);
 }
 
 .badge-dot {
@@ -161,7 +239,7 @@ input {
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--color-main);
+  color: var(--theme-badge-text);
 }
 
 .reveal {
@@ -228,12 +306,12 @@ input {
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 800;
   line-height: 1;
-  color: var(--color-main);
+  color: var(--color-main-dim);
 }
 
 .nl-input {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--theme-input-bg);
+  border: 1px solid var(--theme-input-border);
   color: var(--color-fg);
   transition:
     border-color 0.2s,
@@ -241,12 +319,12 @@ input {
 }
 
 .nl-input:focus {
-  border-color: rgba(34, 197, 94, 0.5);
-  background: rgba(34, 197, 94, 0.04);
+  border-color: rgba(79, 179, 206, 0.5);
+  background: var(--theme-badge-bg);
 }
 
 .nl-input::placeholder {
-  color: rgba(255, 255, 255, 0.3);
+  color: var(--theme-input-placeholder);
 }
 
 .hero-img-wrap {
@@ -257,7 +335,12 @@ input {
   content: "";
   position: absolute;
   inset: -2px;
-  background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), transparent 60%);
+  background: linear-gradient(
+    135deg,
+    rgba(79, 179, 206, 0.22),
+    rgba(232, 160, 138, 0.1) 50%,
+    transparent 70%
+  );
   border-radius: 1rem;
   z-index: 0;
 }

@@ -1,3 +1,7 @@
+import logoDark from "~/assets/images/logo/logo-2.png"
+// import logoLight from "~/assets/images/logo/logo-2.png"
+import logoStacked from "~/assets/images/logo/logo-1.jpg"
+
 export const site = {
   name: "eSquare e.V.",
   email: "info@esquare-ev.de",
@@ -10,7 +14,11 @@ export const site = {
 }
 
 export const assets = {
-  logo: "https://esquare-ev.de/wp-content/uploads/2023/11/logo_green_white.png",
+  /** Transparent PNG — dark backgrounds */
+  logoDark,
+  /** JPG on white — light backgrounds */
+  logo: logoDark,
+  logoStacked,
   heroBg:
     "https://esquare-ev.de/wp-content/uploads/2023/11/376819373_706837994822143_2083299039578990032_n-1.jpg",
   newsletterBg:

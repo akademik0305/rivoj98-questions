@@ -18,7 +18,7 @@ function onSubscribe(e: Event) {
         <h2 class="font-display mb-5 text-4xl font-bold leading-tight text-fg lg:text-5xl">
           Stay in the <span class="text-gradient">Loop</span>
         </h2>
-        <p class="mb-10 text-base leading-relaxed text-zinc-400">
+        <p class="mb-10 text-base leading-relaxed text-fg-muted">
           Monthly updates on open calls for mobility projects, local and international events, research, and more. We promise — no spam.
         </p>
 
@@ -43,7 +43,7 @@ function onSubscribe(e: Event) {
         <p v-if="subscribed" class="mt-4 text-sm text-main" role="status">
           Thank you for subscribing!
         </p>
-        <p v-else class="mt-4 text-xs text-zinc-600">
+        <p v-else class="mt-4 text-xs text-fg-dim">
           No spam. Unsubscribe anytime.
         </p>
       </UiReveal>

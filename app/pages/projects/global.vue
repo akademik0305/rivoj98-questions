@@ -29,7 +29,7 @@ useSeoMeta({
       </UiReveal>
       <div class="grid gap-5">
         <UiReveal v-for="(project, i) in globalProjects" :key="project.title" :delay="(i % 3) as 0 | 1 | 2">
-          <article class="activity-card rounded-2xl border border-white/8 bg-zinc-900/60 p-6 lg:p-8">
+          <article class="activity-card surface-card rounded-2xl p-6 lg:p-8">
             <h3 class="font-display text-xl font-bold text-fg">{{ project.title }}</h3>
             <dl class="mt-4 grid gap-4 text-sm sm:grid-cols-2">
               <div>
@@ -45,7 +45,7 @@ useSeoMeta({
               :href="project.href"
               target="_blank"
               rel="noopener noreferrer"
-              class="border-animate mt-6 inline-flex w-fit items-center gap-2 pb-0.5 text-sm font-semibold text-green-400"
+              class="border-animate mt-6 inline-flex w-fit items-center gap-2 pb-0.5 text-sm font-semibold text-main"
             >
               Learn more
               <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>

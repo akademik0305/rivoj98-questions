@@ -18,7 +18,7 @@ function formatDate(iso: string) {
 
 <template>
   <article
-    class="activity-card group flex flex-col rounded-2xl border border-white/[0.08] bg-zinc-900/60 p-6 lg:p-8"
+    class="activity-card surface-card group flex flex-col rounded-2xl p-6 lg:p-8"
   >
     <p
       v-if="category || post.category"
@@ -27,7 +27,7 @@ function formatDate(iso: string) {
       {{ category || post.category }}
     </p>
     <time
-      class="mt-2 block text-xs text-zinc-500"
+      class="mt-2 block text-xs text-fg-soft"
       :datetime="post.date"
     >
       {{ formatDate(post.date) }}
@@ -37,12 +37,12 @@ function formatDate(iso: string) {
     >
       {{ post.title }}
     </h3>
-    <p class="mt-3 line-clamp-4 text-sm leading-relaxed text-zinc-400">
+    <p class="mt-3 line-clamp-4 text-sm leading-relaxed text-fg-muted">
       {{ post.excerpt }}
     </p>
     <NuxtLink
       :to="`${basePath}/${post.slug}`"
-      class="border-animate mt-5 inline-flex w-fit items-center gap-2 pb-0.5 text-sm font-semibold text-green-400"
+      class="border-animate mt-5 inline-flex w-fit items-center gap-2 pb-0.5 text-sm font-semibold text-main"
     >
       Read more
       <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>

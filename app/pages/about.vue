@@ -22,7 +22,7 @@ useSeoMeta({
         <UiSectionHeading tag="Our Mission" title="Civic" accent="Participation" />
       </UiReveal>
       <UiReveal :delay="1">
-        <div class="mt-10 max-w-3xl space-y-5 text-sm leading-relaxed text-zinc-400 lg:text-base">
+        <div class="mt-10 max-w-3xl space-y-5 text-sm leading-relaxed text-fg-muted lg:text-base">
           <p>eSquare e.V. is a non-profit, non-governmental organization based in Berlin, founded in 2018 and run by young professionals and volunteers, who are developing projects to engage citizens in the democratic process and empower civic participation online and offline.</p>
           <p>The organization implements projects locally in Germany and globally in several countries across the world and is open for partnerships with organizations working in the same field.</p>
           <p>At eSquare, we believe in the transformative power of education and digital proficiency. Our initiatives are tailored to empower the younger generation, equipping them with essential digital skills and fostering their active participation in society.</p>
