@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { site } from "~/data/site"
-
-const { logoSrc } = useSiteLogo()
+import { assets, site } from "~/data/site"
 
 const navLinks = [
   { label: "Home", to: "/" },
@@ -27,7 +25,7 @@ const legalLinks = [
         <div class="col-span-2 lg:col-span-1">
           <div class="mb-5">
             <img
-              :src="logoSrc"
+              :src="assets.logo"
               :alt="`${site.name} logo`"
               class="h-10 w-auto"
               width="160"

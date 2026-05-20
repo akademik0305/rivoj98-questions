@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { site } from "~/data/site"
-
-const { logoSrc } = useSiteLogo()
+import { assets, site } from "~/data/site"
 const route = useRoute()
 const mobileOpen = ref(false)
 const navShadow = ref(false)
@@ -56,7 +54,7 @@ onUnmounted(() => {
 			<div class="flex h-16 items-center justify-between lg:h-20">
 				<NuxtLink to="/" class="group flex shrink-0 items-center">
 					<img
-						:src="logoSrc"
+						:src="assets.logo"
 						:alt="`${site.name} logo`"
 						class="h-10 w-auto transition-opacity group-hover:opacity-90 lg:h-11"
 						width="200"

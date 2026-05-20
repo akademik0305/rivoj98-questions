@@ -1,5 +1,4 @@
-import logoDark from "~/assets/images/logo/logo-2.png"
-// import logoLight from "~/assets/images/logo/logo-2.png"
+import logo from "~/assets/images/logo/logo-2.png"
 import logoStacked from "~/assets/images/logo/logo-1.jpg"
 
 export const site = {
@@ -14,10 +13,7 @@ export const site = {
 }
 
 export const assets = {
-  /** Transparent PNG — dark backgrounds */
-  logoDark,
-  /** JPG on white — light backgrounds */
-  logo: logoDark,
+  logo,
   logoStacked,
   heroBg:
     "https://esquare-ev.de/wp-content/uploads/2023/11/376819373_706837994822143_2083299039578990032_n-1.jpg",
