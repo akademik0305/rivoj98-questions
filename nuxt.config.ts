@@ -6,6 +6,18 @@ export default defineNuxtConfig({
 	devtools: { enabled: true },
 	modules: ["@nuxt/ui", "@nuxt/fonts"],
 
+	app: {
+		head: {
+			title: "Rivoj 98 — So'rovnoma",
+			meta: [
+				{
+					name: "description",
+					content: "Rivoj 98 mijozlar so'rovnomasi. Xizmatimiz sifati haqida fikringizni bildiring.",
+				},
+			],
+		},
+	},
+
 	colorMode: {
 		preference: "dark",
 		fallback: "dark",
@@ -14,6 +26,13 @@ export default defineNuxtConfig({
 
 	vite: {
 		plugins: [tailwindcss()],
+		optimizeDeps: {
+			include: [
+				"@vue/devtools-core",
+				"@vue/devtools-kit",
+				"xlsx",
+			],
+		},
 	},
 
 	css: ["./app/assets/css/main.css"],

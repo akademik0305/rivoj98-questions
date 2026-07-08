@@ -1,0 +1,90 @@
+[
+  {
+    "id": 1,
+    "type": "radio",
+    "question": "Bizni boshqa temir-beton mahsulotlari ishlab chiqaruvchilardan ajratib turadigan eng katta ustunligimiz nima, deb o'ylaysiz?",
+    "options": [
+      { "id": "a", "text": "Sotuvchilarni maxsulotni to'liq tushuntirib berishi va muomilasi", "hasCustomInput": false },
+      { "id": "b", "text": "Maxsulot to'liq standartlar asosida tayorlanishi", "hasCustomInput": false },
+      { "id": "c", "text": "Maxsulotni biz aytgan voqtga kechiktirmasdan tayorlab yetkazib berishadi", "hasCustomInput": false },
+      { "id": "d", "text": "Boshqa", "hasCustomInput": true }
+    ]
+  },
+  {
+    "id": 2,
+    "type": "radio",
+    "question": "Mahsulotlarimiz siz kutgan sifat talablariga qanchalik javob berdi?",
+    "options": [
+      { "id": "a", "text": "Maxsulotlar siz kutgan sifatlarda keldi", "hasCustomInput": false },
+      { "id": "b", "text": "Maxsulot o'lchamlari noto'g'ri", "hasCustomInput": false },
+      { "id": "c", "text": "Maxsulot tashqi yuza qismi notekis, qoliplaringni qayta tekisligini ko'rish kerak", "hasCustomInput": false },
+      { "id": "d", "text": "Boshqa", "hasCustomInput": true }
+    ]
+  },
+  {
+    "id": 3,
+    "type": "radio",
+    "question": "Agar yana temir beton maxsulotlariga extiyoj tug'ulsa aynan shu sotuvchi bilan ishlashni xoxlaysizmi va nima uchun?",
+    "options": [
+      { "id": "a", "text": "Keyingi buyurtmangizda shu sotuvchi bilan yana ishlashni xoxlaysizmi", "hasCustomInput": false },
+      { "id": "b", "text": "Sotuvchi bilan ishlashda qanday tushunmovchiliklar bo'ldi", "hasCustomInput": false },
+      { "id": "c", "text": "Sotuvchimiz bilan ishlash jarayonida sizni nimadur norozi qildimi", "hasCustomInput": false },
+      { "id": "d", "text": "Boshqa", "hasCustomInput": true }
+    ]
+  },
+  {
+    "id": 4,
+    "type": "radio",
+    "question": "Agar bizning bitta kamchiligimizni bartaraf etish imkoniyati bo'lsa, qaysi kamchilikni tanlagan bo'lardingiz?",
+    "options": [
+      { "id": "a", "text": "Narxlarni qayta ko'rib chiqish", "hasCustomInput": false },
+      { "id": "b", "text": "Maxsulot sifatini oshirish", "hasCustomInput": false },
+      { "id": "c", "text": "Yetkazib berish muddatini qisqartirish", "hasCustomInput": false },
+      { "id": "d", "text": "Boshqa", "hasCustomInput": true }
+    ]
+  },
+  {
+    "id": 5,
+    "type": "radio",
+    "question": "Bizdan maxsulot olmaganingizda qaysi zavotdan olgan bo’laredingiz?",
+    "options": [
+      { "id": "a", "text": "Binokor JBI", "hasCustomInput": false },
+      { "id": "b", "text": "5 bola beton", "hasCustomInput": false },
+      { "id": "c", "text": "111 beton JBI", "hasCustomInput": false },
+      { "id": "d", "text": "Turon JBI", "hasCustomInput": false },
+      { "id": "e", "text": "Boshqa", "hasCustomInput": true }
+    ]
+  },
+  {
+    "id": 6,
+    "type": "radio",
+    "question": "Sizningcha, biz raqobatchilarimizdan qaysi jihatlar bo'yicha ortdamiz?",
+    "options": [
+      { "id": "a", "text": "Nasiyaga savdo qilmasligimiz", "hasCustomInput": false },
+      { "id": "b", "text": "Narxlarni balandligi", "hasCustomInput": false },
+      { "id": "c", "text": "Boshqa", "hasCustomInput": true }
+    ]
+  },
+  {
+    "id": 7,
+    "type": "radio",
+    "question": "Agar tanishingiz temir-beton mahsulotlari qidirsa, Rivoj 98 ni tavsiya qilasizmi?",
+    "options": [
+      { "id": "a", "text": "Tavsiya qilaman", "hasCustomInput": false },
+      { "id": "b", "text": "Tavsiya qilmayman", "hasCustomInput": false },
+      { "id": "c", "text": "Zavotga borib maxsulotlarini ko'rib keyin buyurtma berishini aytaman", "hasCustomInput": false },
+      { "id": "d", "text": "Boshqa", "hasCustomInput": true }
+    ]
+  },
+  {
+    "id": 8,
+    "type": "radio",
+    "question": "Rivoj 98 rahbariyatiga bitta tavsiya berish imkoniyati bo'lsa, nima der edingiz?",
+    "options": [
+      { "id": "a", "text": "Doimiy mijozlarga chegirma summasini ko'paytirish", "hasCustomInput": false },
+      { "id": "b", "text": "Maxsulot turlarini ko'paytirish", "hasCustomInput": false },
+      { "id": "c", "text": "Sotuvchilarni muomalasini yaxshilash", "hasCustomInput": false },
+      { "id": "d", "text": "Boshqa", "hasCustomInput": true }
+    ]
+  }
+]
