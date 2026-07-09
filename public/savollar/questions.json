@@ -15,7 +15,7 @@
     "type": "radio",
     "question": "Mahsulotlarimiz siz kutgan sifat talablariga qanchalik javob berdi?",
     "options": [
-      { "id": "a", "text": "Maxsulotlar siz kutgan sifatlarda keldi", "hasCustomInput": false },
+      { "id": "a", "text": "Maxsulotlar siz kutgan sifatlarda keldi (maxsulot yaxshi keldi)", "hasCustomInput": false },
       { "id": "b", "text": "Maxsulot o'lchamlari noto'g'ri", "hasCustomInput": false },
       { "id": "c", "text": "Maxsulot tashqi yuza qismi notekis, qoliplaringni qayta tekisligini ko'rish kerak", "hasCustomInput": false },
       { "id": "d", "text": "Boshqa", "hasCustomInput": true }
@@ -26,10 +26,13 @@
     "type": "radio",
     "question": "Agar yana temir beton maxsulotlariga extiyoj tug'ulsa aynan shu sotuvchi bilan ishlashni xoxlaysizmi va nima uchun?",
     "options": [
-      { "id": "a", "text": "Keyingi buyurtmangizda shu sotuvchi bilan yana ishlashni xoxlaysizmi", "hasCustomInput": false },
-      { "id": "b", "text": "Sotuvchi bilan ishlashda qanday tushunmovchiliklar bo'ldi", "hasCustomInput": false },
-      { "id": "c", "text": "Sotuvchimiz bilan ishlash jarayonida sizni nimadur norozi qildimi", "hasCustomInput": false },
-      { "id": "d", "text": "Boshqa", "hasCustomInput": true }
+      { "id": "a", "text": "Xoxlayman (keyingi buyurtmada ham shu sotuvchi bilan ishlashni xoxlayman)", "hasCustomInput": false },
+      { "id": "b", "text": "Boshqa sotuvchi bo'lsin", "hasCustomInput": false },
+      { "id": "c", "text": "Menga sotuvchini kim bo'lishidan farqi yo'q", "hasCustomInput": false },
+      { "id": "d", "text": "Sotuvchi mahsulot haqida to'liq ma'lumot bergani yo'q", "hasCustomInput": false },
+      { "id": "e", "text": "Narxlarni hisoblashda naqd va pul ko'chirish (perechisleniye) o'rtasidagi farqni tushuntira olmadi", "hasCustomInput": false },
+      { "id": "f", "text": "Telefonni vaqtida olmaydi", "hasCustomInput": false },
+      { "id": "g", "text": "Boshqa", "hasCustomInput": true }
     ]
   },
   {
@@ -52,7 +55,7 @@
       { "id": "b", "text": "5 bola beton", "hasCustomInput": false },
       { "id": "c", "text": "111 beton JBI", "hasCustomInput": false },
       { "id": "d", "text": "Turon JBI", "hasCustomInput": false },
-      { "id": "e", "text": "Boshqa", "hasCustomInput": true }
+      { "id": "e", "text": "Boshqa zavod", "hasCustomInput": true }
     ]
   },
   {
@@ -84,6 +87,53 @@
       { "id": "a", "text": "Doimiy mijozlarga chegirma summasini ko'paytirish", "hasCustomInput": false },
       { "id": "b", "text": "Maxsulot turlarini ko'paytirish", "hasCustomInput": false },
       { "id": "c", "text": "Sotuvchilarni muomalasini yaxshilash", "hasCustomInput": false },
+      { "id": "d", "text": "Boshqa", "hasCustomInput": true }
+    ]
+  },
+  {
+    "id": 9,
+    "type": "radio",
+    "question": "Sizga xizmat ko'rsatgan sotuvchimizni kuchli va kuchsiz tomonlari nimada?",
+    "options": [
+      { "id": "a", "text": "Muomalasi yaxshi", "hasCustomInput": false },
+      { "id": "b", "text": "Maxsulotni to'liq tushuntirib berdi", "hasCustomInput": false },
+      { "id": "c", "text": "Maxsulotni yaxshi bilmaydi", "hasCustomInput": false },
+      { "id": "d", "text": "Telefonni ko'tarmaydi", "hasCustomInput": false },
+      { "id": "e", "text": "Maxsulotlarni aytilgan kunga yetkazib bermaydi", "hasCustomInput": false },
+      { "id": "f", "text": "Boshqa", "hasCustomInput": true }
+    ]
+  },
+  {
+    "id": 10,
+    "type": "radio",
+    "question": "Sizningcha biz qaysi xizmatimizni yaxshilasak siz bizdan ko'proq maxsulot xarid qilardingiz?",
+    "options": [
+      { "id": "a", "text": "Sifat", "hasCustomInput": false },
+      { "id": "b", "text": "Narx", "hasCustomInput": false },
+      { "id": "c", "text": "Yetkazib berish", "hasCustomInput": false },
+      { "id": "d", "text": "Boshqa", "hasCustomInput": true }
+    ]
+  },
+  {
+    "id": 11,
+    "type": "radio",
+    "question": "Mahsulotimizning narxi uning sifatiga mos deb hisoblaysizmi?",
+    "options": [
+      { "id": "a", "text": "Xa, mahsulot sifati narxiga mos keladi", "hasCustomInput": false },
+      { "id": "b", "text": "Albatta, sifatini hisobga olganda narxi juda ma'qul", "hasCustomInput": false },
+      { "id": "c", "text": "Maxsulotlar sifati yaxshi lekin narxi qimmat", "hasCustomInput": false },
+      { "id": "d", "text": "Maxsulot sifatini yaxshilash kerak", "hasCustomInput": false },
+      { "id": "e", "text": "Boshqa", "hasCustomInput": true }
+    ]
+  },
+  {
+    "id": 12,
+    "type": "radio",
+    "question": "Mahsulot sifati raqobatchilarnikidan yaxshiroq deb o`ylaysizmi?",
+    "options": [
+      { "id": "a", "text": "Mustahkamligi va sifati bilan yuqori turadi", "hasCustomInput": false },
+      { "id": "b", "text": "Shu paytgacha foydalangan mahsulotlarim orasida eng yaxshilaridan biri", "hasCustomInput": false },
+      { "id": "c", "text": "Raqobatchilar bilan solishtirganda sifati ancha yaxshi taassurot qoldirdi", "hasCustomInput": false },
       { "id": "d", "text": "Boshqa", "hasCustomInput": true }
     ]
   }
