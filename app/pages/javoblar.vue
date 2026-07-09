@@ -2,23 +2,22 @@
 import type { SurveyQuestion, SurveyResponse } from "~/types/survey"
 import { loadQuestions } from "~/data/questions"
 import {
+  clearLegacyStoredResponses,
+  exportResponsesToXlsx,
+  formatAnswerValue,
+  getLegacyStoredResponses,
+  saveResponsesToServer,
+} from "~/utils/survey"
+import {
   isAdminAuthenticated,
   loginAdmin,
   logoutAdmin,
 } from "~/utils/auth"
-import {
-  clearStoredResponses,
-  exportResponsesToXlsx,
-  getStoredResponses,
-  importResponsesFromJson,
-  mergeResponses,
-  STORAGE_KEY,
-} from "~/utils/survey"
 
 definePageMeta({ layout: "default" })
 
 useSeoMeta({
-  title: "Javoblarni eksport qilish",
+  title: "Javoblarni ko'rish",
   robots: "noindex, nofollow",
 })
 
@@ -30,20 +29,22 @@ const loginError = ref<string | null>(null)
 const questions = ref<SurveyQuestion[]>([])
 const responses = ref<SurveyResponse[]>([])
 const loading = ref(true)
-const importInput = ref<HTMLInputElement | null>(null)
+const actionLoading = ref(false)
+const legacyResponses = ref<SurveyResponse[]>([])
 
 async function loadAdminData() {
   loading.value = true
   try {
     questions.value = await loadQuestions()
-    responses.value = getStoredResponses()
+    responses.value = await $fetch<SurveyResponse[]>("/api/responses")
+    legacyResponses.value = getLegacyStoredResponses()
   } finally {
     loading.value = false
   }
 }
 
 onMounted(async () => {
-  authenticated.value = isAdminAuthenticated()
+  authenticated.value = await isAdminAuthenticated()
   if (authenticated.value) {
     await loadAdminData()
   } else {
@@ -51,27 +52,38 @@ onMounted(async () => {
   }
 })
 
-function handleLogin() {
+const responseItems = computed(() =>
+  [...responses.value].sort((a, b) =>
+    new Date(b.submittedAt).getTime() - new Date(a.submittedAt).getTime(),
+  ),
+)
+
+function formatSubmittedAt(value: string) {
+  return new Date(value).toLocaleString("uz-UZ")
+}
+
+function getAnswerText(response: SurveyResponse, question: SurveyQuestion) {
+  return formatAnswerValue(question, response.answers[question.id] ?? [])
+}
+
+async function handleLogin() {
   loginError.value = null
-  if (loginAdmin(loginValue.value, passwordValue.value)) {
+  try {
+    await loginAdmin(loginValue.value, passwordValue.value)
     authenticated.value = true
     loginValue.value = ""
     passwordValue.value = ""
-    loadAdminData()
-  } else {
+    await loadAdminData()
+  } catch {
     loginError.value = "Login yoki parol noto'g'ri"
   }
 }
 
-function handleLogout() {
-  logoutAdmin()
+async function handleLogout() {
+  await logoutAdmin()
   authenticated.value = false
   responses.value = []
   questions.value = []
-}
-
-function refresh() {
-  responses.value = getStoredResponses()
 }
 
 function handleExport() {
@@ -79,22 +91,29 @@ function handleExport() {
   exportResponsesToXlsx(questions.value, responses.value)
 }
 
-function handleClear() {
+async function handleClear() {
   if (!confirm("Barcha saqlangan javoblar o'chirilsinmi?")) return
-  clearStoredResponses()
-  refresh()
+  actionLoading.value = true
+  try {
+    await $fetch("/api/responses", { method: "DELETE" })
+    responses.value = []
+  } finally {
+    actionLoading.value = false
+  }
 }
 
-async function handleImport(event: Event) {
-  const input = event.target as HTMLInputElement
-  const files = Array.from(input.files ?? [])
-  if (!files.length) return
+async function migrateLegacyResponses() {
+  if (!legacyResponses.value.length) return
 
-  const imported = await importResponsesFromJson(files)
-  const merged = mergeResponses(responses.value, imported)
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(merged))
-  refresh()
-  input.value = ""
+  actionLoading.value = true
+  try {
+    await saveResponsesToServer(legacyResponses.value)
+    clearLegacyStoredResponses()
+    legacyResponses.value = []
+    await loadAdminData()
+  } finally {
+    actionLoading.value = false
+  }
 }
 </script>
 
@@ -171,10 +190,10 @@ async function handleImport(event: Event) {
               Admin
             </p>
             <h1 class="font-display mb-2 text-xl font-bold text-fg sm:text-2xl lg:text-3xl">
-              Javoblarni boshqarish
+              Barcha javoblar
             </h1>
             <p class="text-sm text-fg-muted">
-              Barcha mijoz javoblarini Excel faylga yuklab oling yoki JSON fayllarni import qiling.
+              Dunyoning istalgan joyidan yuborilgan barcha javoblar shu yerda jamlanadi.
             </p>
           </div>
           <button
@@ -201,6 +220,31 @@ async function handleImport(event: Event) {
               <p class="text-xl font-bold text-main sm:text-2xl">{{ questions.length }}</p>
               <p class="mt-1 text-xs text-fg-dim">Savollar soni</p>
             </div>
+          </div>
+
+          <div
+            v-if="legacyResponses.length"
+            class="survey-card space-y-4 border-amber-500/20 bg-amber-500/5"
+          >
+            <div class="flex items-center gap-2">
+              <div class="flex size-8 items-center justify-center rounded-lg bg-amber-500/10">
+                <svg class="size-4 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M12 8v.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h2 class="text-sm font-semibold text-fg">Eski javoblar topildi</h2>
+            </div>
+            <p class="text-sm leading-relaxed text-fg-muted">
+              Shu brauzerda eski usulda saqlangan {{ legacyResponses.length }} ta javob bor. Ularni ham serverga ko'chirib qo'ysangiz, umumiy ro'yxatda chiqadi.
+            </p>
+            <button
+              type="button"
+              class="w-full rounded-xl border border-amber-500/25 px-6 py-3 text-sm font-medium text-amber-500 transition-colors hover:bg-amber-500/5 disabled:opacity-50 sm:w-auto"
+              :disabled="actionLoading"
+              @click="migrateLegacyResponses"
+            >
+              Serverga ko'chirish
+            </button>
           </div>
 
           <div class="survey-card space-y-4">
@@ -233,19 +277,19 @@ async function handleImport(event: Event) {
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
                 </svg>
               </div>
-              <h2 class="text-sm font-semibold text-fg">Import</h2>
+              <h2 class="text-sm font-semibold text-fg">Jonli ro'yxat</h2>
             </div>
             <p class="text-sm leading-relaxed text-fg-muted">
-              Agar javoblar boshqa qurilmada yig'ilgan bo'lsa, JSON fayllarni shu yerga yuklang va birlashtiring.
+              Yangi javoblar serverda saqlanadi va shu sahifada umumiy ro'yxatda ko'rinadi.
             </p>
-            <input
-              ref="importInput"
-              type="file"
-              accept=".json,application/json"
-              multiple
-              class="block w-full text-sm text-fg-muted file:mr-4 file:mb-2 file:cursor-pointer file:rounded-lg file:border-0 file:bg-main file:px-4 file:py-2 file:text-sm file:font-semibold file:text-on-main hover:file:bg-main-hover sm:file:mb-0"
-              @change="handleImport"
-            />
+            <button
+              type="button"
+              class="w-full rounded-xl border border-border px-6 py-3 text-sm font-medium text-fg transition-colors hover:bg-hover disabled:opacity-50 sm:w-auto"
+              :disabled="loading"
+              @click="loadAdminData"
+            >
+              Yangilash
+            </button>
           </div>
 
           <div class="survey-card space-y-4 border-red-500/15">
@@ -258,16 +302,54 @@ async function handleImport(event: Event) {
               <h2 class="text-sm font-semibold text-fg">Tozalash</h2>
             </div>
             <p class="text-sm leading-relaxed text-fg-muted">
-              Brauzerda saqlangan barcha javoblarni o'chirish (eksport qilganingizdan keyin).
+              Serverda saqlangan barcha javoblarni o'chirish (eksport qilganingizdan keyin).
             </p>
             <button
               type="button"
               class="w-full rounded-xl border border-red-500/25 px-6 py-3 text-sm font-medium text-red-500 transition-colors hover:bg-red-500/5 disabled:opacity-50 sm:w-auto"
-              :disabled="!responses.length"
+              :disabled="!responses.length || actionLoading"
               @click="handleClear"
             >
-              Barcha javoblarni o'chirish
+              {{ actionLoading ? "Tozalanmoqda..." : "Barcha javoblarni o'chirish" }}
             </button>
+          </div>
+
+          <div class="space-y-3">
+            <div
+              v-for="response in responseItems"
+              :key="response.id"
+              class="survey-card"
+            >
+              <div class="mb-4 flex flex-wrap items-start justify-between gap-3 border-b border-border pb-4">
+                <div>
+                  <h2 class="text-sm font-semibold text-fg">Javob #{{ response.id }}</h2>
+                  <p class="mt-1 text-xs text-fg-dim">{{ formatSubmittedAt(response.submittedAt) }}</p>
+                </div>
+              </div>
+
+              <div class="space-y-4">
+                <div
+                  v-for="(question, index) in questions"
+                  :key="`${response.id}-${question.id}`"
+                  class="rounded-xl border border-border/70 bg-bg-elevated/40 p-4"
+                >
+                  <p class="text-xs font-medium text-fg-dim">{{ index + 1 }}-savol</p>
+                  <p class="mt-1 text-sm font-medium leading-relaxed text-fg">
+                    {{ question.question }}
+                  </p>
+                  <p class="mt-2 text-sm leading-relaxed text-fg-muted">
+                    {{ getAnswerText(response, question) || "Javob topilmadi" }}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              v-if="!responseItems.length"
+              class="survey-card text-center text-sm text-fg-muted"
+            >
+              Hozircha javoblar yo'q.
+            </div>
           </div>
 
           <NuxtLink

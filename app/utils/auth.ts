@@ -1,20 +1,17 @@
-export const ADMIN_AUTH_KEY = "sorovnoma-admin-auth"
-export const ADMIN_LOGIN = "rivoj98"
-export const ADMIN_PASSWORD = "mavlonjon"
-
-export function isAdminAuthenticated() {
-  if (!import.meta.client) return false
-  return sessionStorage.getItem(ADMIN_AUTH_KEY) === "1"
+export async function isAdminAuthenticated() {
+  const response = await $fetch<{ authenticated: boolean }>("/api/admin/session")
+  return response.authenticated
 }
 
-export function loginAdmin(login: string, password: string) {
-  if (login.trim() === ADMIN_LOGIN && password === ADMIN_PASSWORD) {
-    sessionStorage.setItem(ADMIN_AUTH_KEY, "1")
-    return true
-  }
-  return false
+export async function loginAdmin(login: string, password: string) {
+  await $fetch("/api/admin/login", {
+    method: "POST",
+    body: { login, password },
+  })
 }
 
-export function logoutAdmin() {
-  sessionStorage.removeItem(ADMIN_AUTH_KEY)
+export async function logoutAdmin() {
+  await $fetch("/api/admin/logout", {
+    method: "POST",
+  })
 }

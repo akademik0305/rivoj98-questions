@@ -2,8 +2,7 @@ import type { SurveyAnswer, SurveyQuestion, SurveyResponse } from "~/types/surve
 import { loadQuestions } from "~/data/questions"
 import {
   createResponseId,
-  getStoredResponses,
-  saveResponse,
+  saveResponseToServer,
 } from "~/utils/survey"
 
 export function useSurvey() {
@@ -11,6 +10,7 @@ export function useSurvey() {
   const loading = ref(true)
   const error = ref<string | null>(null)
   const submitted = ref(false)
+  const submitting = ref(false)
 
   const answers = reactive<Record<number, SurveyAnswer[]>>({})
 
@@ -130,7 +130,7 @@ export function useSurvey() {
     return Math.round((answered / questions.value.length) * 100)
   })
 
-  function submit() {
+  async function submit() {
     const validationError = validate()
     if (validationError) return validationError
 
@@ -140,9 +140,17 @@ export function useSurvey() {
       answers: JSON.parse(JSON.stringify(answers)),
     }
 
-    saveResponse(response)
-    submitted.value = true
-    return null
+    submitting.value = true
+
+    try {
+      await saveResponseToServer(response)
+      submitted.value = true
+      return null
+    } catch (e) {
+      return e instanceof Error ? e.message : "Javobni saqlab bo'lmadi"
+    } finally {
+      submitting.value = false
+    }
   }
 
   function reset() {
@@ -155,6 +163,7 @@ export function useSurvey() {
     loading,
     error,
     submitted,
+    submitting,
     answers,
     canSubmit,
     progress,
@@ -167,6 +176,5 @@ export function useSurvey() {
     isQuestionAnswered,
     submit,
     reset,
-    getStoredResponses,
   }
 }

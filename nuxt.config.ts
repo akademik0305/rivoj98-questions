@@ -5,6 +5,10 @@ export default defineNuxtConfig({
 	compatibilityDate: "2025-07-15",
 	devtools: { enabled: true },
 	modules: ["@nuxt/ui", "@nuxt/fonts"],
+	runtimeConfig: {
+		adminLogin: process.env.SOROVNOMA_ADMIN_LOGIN || "rivoj98",
+		adminPassword: process.env.SOROVNOMA_ADMIN_PASSWORD || "mavlonjon",
+	},
 
 	app: {
 		head: {

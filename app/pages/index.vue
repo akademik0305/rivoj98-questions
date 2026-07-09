@@ -12,6 +12,7 @@ const {
   loading,
   error,
   submitted,
+  submitting,
   canSubmit,
   progress,
   fetchQuestions,
@@ -67,8 +68,8 @@ onUnmounted(() => {
   progressObserver?.disconnect()
 })
 
-function handleSubmit() {
-  formError.value = submit()
+async function handleSubmit() {
+  formError.value = await submit()
 }
 
 function handleNewResponse() {
@@ -260,11 +261,11 @@ function onOptionSelect(
           <button
             type="submit"
             class="btn-primary w-full py-3.5 sm:py-4"
-            :disabled="!canSubmit"
+            :disabled="!canSubmit || submitting"
           >
-            Javoblarni yuborish
+            {{ submitting ? "Yuborilmoqda..." : "Javoblarni yuborish" }}
           </button>
-          <p v-if="!canSubmit" class="text-center text-xs text-fg-dim">
+          <p v-if="!canSubmit && !submitting" class="text-center text-xs text-fg-dim">
             Barcha savollarga javob bering
           </p>
         </form>

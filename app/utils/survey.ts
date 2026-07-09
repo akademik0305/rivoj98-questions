@@ -2,15 +2,19 @@ import * as XLSX from "xlsx"
 import type { SurveyAnswer, SurveyQuestion, SurveyResponse } from "~/types/survey"
 import { loadQuestions } from "~/data/questions"
 
-export const STORAGE_KEY = "sorovnoma-javoblar"
+export const LEGACY_STORAGE_KEY = "sorovnoma-javoblar"
 
 export { loadQuestions }
 
-export function getStoredResponses(): SurveyResponse[] {
+export function createResponseId() {
+  return `${Date.now()}-${Math.random().toString(36).slice(2, 9)}`
+}
+
+export function getLegacyStoredResponses(): SurveyResponse[] {
   if (!import.meta.client) return []
 
   try {
-    const raw = localStorage.getItem(STORAGE_KEY)
+    const raw = localStorage.getItem(LEGACY_STORAGE_KEY)
     if (!raw) return []
     return JSON.parse(raw) as SurveyResponse[]
   } catch {
@@ -18,18 +22,22 @@ export function getStoredResponses(): SurveyResponse[] {
   }
 }
 
-export function saveResponse(response: SurveyResponse) {
-  const existing = getStoredResponses()
-  existing.push(response)
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(existing))
+export function clearLegacyStoredResponses() {
+  if (!import.meta.client) return
+  localStorage.removeItem(LEGACY_STORAGE_KEY)
 }
 
-export function clearStoredResponses() {
-  localStorage.removeItem(STORAGE_KEY)
+export async function saveResponseToServer(response: SurveyResponse) {
+  await $fetch("/api/responses", {
+    method: "POST",
+    body: response,
+  })
 }
 
-export function createResponseId() {
-  return `${Date.now()}-${Math.random().toString(36).slice(2, 9)}`
+export async function saveResponsesToServer(responses: SurveyResponse[]) {
+  for (const response of responses) {
+    await saveResponseToServer(response)
+  }
 }
 
 export function formatAnswerValue(
@@ -77,30 +85,4 @@ export function exportResponsesToXlsx(
   const workbook = XLSX.utils.book_new()
   XLSX.utils.book_append_sheet(workbook, worksheet, "Javoblar")
   XLSX.writeFile(workbook, filename)
-}
-
-export function importResponsesFromJson(files: File[]): Promise<SurveyResponse[]> {
-  return Promise.all(
-    files.map(async (file) => {
-      const text = await file.text()
-      return JSON.parse(text) as SurveyResponse
-    }),
-  )
-}
-
-export function mergeResponses(
-  existing: SurveyResponse[],
-  incoming: SurveyResponse[],
-) {
-  const ids = new Set(existing.map((r) => r.id))
-  const merged = [...existing]
-
-  for (const response of incoming) {
-    if (!ids.has(response.id)) {
-      merged.push(response)
-      ids.add(response.id)
-    }
-  }
-
-  return merged
 }
