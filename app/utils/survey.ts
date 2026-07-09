@@ -56,7 +56,7 @@ export function exportResponsesToXlsx(
   const headers = [
     "ID",
     "Sana",
-    ...questions.map((q, i) => `Savol ${i + 1}`),
+    ...questions.map((q, i) => `${i + 1}. ${q.question}`),
   ]
 
   const rows = responses.map((response) => {

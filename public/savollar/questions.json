@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "type": "radio",
+    "type": "checkbox",
     "question": "Bizni boshqa temir-beton mahsulotlari ishlab chiqaruvchilardan ajratib turadigan eng katta ustunligimiz nima, deb o'ylaysiz?",
     "options": [
       { "id": "a", "text": "Sotuvchilarni maxsulotni to'liq tushuntirib berishi va muomilasi", "hasCustomInput": false },

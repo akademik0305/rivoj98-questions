@@ -214,7 +214,7 @@ async function handleImport(event: Event) {
             </div>
             <p class="text-sm leading-relaxed text-fg-muted">
               Barcha javoblarni <strong class="font-medium text-fg">javoblar.xlsx</strong> fayliga yuklab oling.
-              Har bir qator — bitta mijoz javobi.
+              Birinchi qatorda savol matnlari, keyingi qatorlarda — har bir mijoz javobi.
             </p>
             <button
               type="button"
