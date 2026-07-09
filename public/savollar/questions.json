@@ -2,6 +2,17 @@
   {
     "id": 1,
     "type": "checkbox",
+    "question": "Bizdan qanday maxsulot sotib olgansiz?",
+    "options": [
+      { "id": "a", "text": "Plita", "hasCustomInput": false },
+      { "id": "b", "text": "Stolba", "hasCustomInput": false },
+      { "id": "c", "text": "Fundament", "hasCustomInput": false },
+      { "id": "d", "text": "Rigel", "hasCustomInput": false }
+    ]
+  },
+  {
+    "id": 2,
+    "type": "radio",
     "question": "Bizni boshqa temir-beton mahsulotlari ishlab chiqaruvchilardan ajratib turadigan eng katta ustunligimiz nima, deb o'ylaysiz?",
     "options": [
       { "id": "a", "text": "Sotuvchilarni maxsulotni to'liq tushuntirib berishi va muomilasi", "hasCustomInput": false },
@@ -11,7 +22,7 @@
     ]
   },
   {
-    "id": 2,
+    "id": 3,
     "type": "radio",
     "question": "Mahsulotlarimiz siz kutgan sifat talablariga qanchalik javob berdi?",
     "options": [
@@ -22,7 +33,7 @@
     ]
   },
   {
-    "id": 3,
+    "id": 4,
     "type": "radio",
     "question": "Agar yana temir beton maxsulotlariga extiyoj tug'ulsa aynan shu sotuvchi bilan ishlashni xoxlaysizmi va nima uchun?",
     "options": [
@@ -36,7 +47,7 @@
     ]
   },
   {
-    "id": 4,
+    "id": 5,
     "type": "radio",
     "question": "Agar bizning bitta kamchiligimizni bartaraf etish imkoniyati bo'lsa, qaysi kamchilikni tanlagan bo'lardingiz?",
     "options": [
@@ -47,9 +58,9 @@
     ]
   },
   {
-    "id": 5,
+    "id": 6,
     "type": "radio",
-    "question": "Bizdan maxsulot olmaganingizda qaysi zavotdan olgan bo’laredingiz?",
+    "question": "Bizdan maxsulot olmaganingizda qaysi zavotdan olgan bo'laredingiz?",
     "options": [
       { "id": "a", "text": "Binokor JBI", "hasCustomInput": false },
       { "id": "b", "text": "5 bola beton", "hasCustomInput": false },
@@ -59,7 +70,7 @@
     ]
   },
   {
-    "id": 6,
+    "id": 7,
     "type": "radio",
     "question": "Sizningcha, biz raqobatchilarimizdan qaysi jihatlar bo'yicha ortdamiz?",
     "options": [
@@ -69,7 +80,7 @@
     ]
   },
   {
-    "id": 7,
+    "id": 8,
     "type": "radio",
     "question": "Agar tanishingiz temir-beton mahsulotlari qidirsa, Rivoj 98 ni tavsiya qilasizmi?",
     "options": [
@@ -80,7 +91,7 @@
     ]
   },
   {
-    "id": 8,
+    "id": 9,
     "type": "radio",
     "question": "Rivoj 98 rahbariyatiga bitta tavsiya berish imkoniyati bo'lsa, nima der edingiz?",
     "options": [
@@ -91,7 +102,7 @@
     ]
   },
   {
-    "id": 9,
+    "id": 10,
     "type": "radio",
     "question": "Sizga xizmat ko'rsatgan sotuvchimizni kuchli va kuchsiz tomonlari nimada?",
     "options": [
@@ -104,7 +115,7 @@
     ]
   },
   {
-    "id": 10,
+    "id": 11,
     "type": "radio",
     "question": "Sizningcha biz qaysi xizmatimizni yaxshilasak siz bizdan ko'proq maxsulot xarid qilardingiz?",
     "options": [
@@ -115,7 +126,7 @@
     ]
   },
   {
-    "id": 11,
+    "id": 12,
     "type": "radio",
     "question": "Mahsulotimizning narxi uning sifatiga mos deb hisoblaysizmi?",
     "options": [
@@ -127,7 +138,7 @@
     ]
   },
   {
-    "id": 12,
+    "id": 13,
     "type": "radio",
     "question": "Mahsulot sifati raqobatchilarnikidan yaxshiroq deb o`ylaysizmi?",
     "options": [
